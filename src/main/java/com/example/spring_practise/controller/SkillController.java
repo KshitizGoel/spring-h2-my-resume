@@ -28,19 +28,13 @@ public class SkillController {
     }
 
     Skills gettingRequiredSkills;
-    String[] a;
 
     @RequestMapping("getSkills")
     public ModelAndView getSkill(@RequestParam("name") String name) {
         ModelAndView mv = new ModelAndView();
         gettingRequiredSkills = skillsRepo.findByName(name);
-        System.out.println("Getting the list here!!");
-        System.out.println("Name : " + gettingRequiredSkills.getName() + "\n"
-                + "Experience : " + gettingRequiredSkills.getExperience() + "\n"
-                + "Framework : " + gettingRequiredSkills.getFramework() + "\n"
-                + "Language : " + gettingRequiredSkills.getLanguage()
-        );
-        mv.setViewName("sample_file");
+        mv.addObject("skills" , gettingRequiredSkills);
+        mv.setViewName("skill_details");
         return mv;
     }
 }

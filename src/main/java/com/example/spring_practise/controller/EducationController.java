@@ -33,8 +33,8 @@ public class EducationController {
     public ModelAndView getEducation(@RequestParam("name") String name) {
         ModelAndView mv = new ModelAndView();
         educationDetails = repo.findByName(name);
-        mv.addObject(educationDetails);
-        mv.setViewName("sample_file");
+        mv.addObject("education_details" , educationDetails);
+        mv.setViewName("education_details");
         System.out.println("Getting the data in Education Controller here!!!!!!");
         System.out.println(educationDetails.getName() + "\n" + educationDetails.getSchool_name() + "\n" + educationDetails.getCollege_name());
         return  mv;
