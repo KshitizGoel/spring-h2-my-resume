@@ -27,5 +27,17 @@ public class EducationController {
         return mv;
     }
 
+    Education educationDetails;
+
+    @RequestMapping("getEducation")
+    public ModelAndView getEducation(@RequestParam("name") String name) {
+        ModelAndView mv = new ModelAndView();
+        educationDetails = repo.findByName(name);
+        mv.addObject(educationDetails);
+        mv.setViewName("sample_file");
+        System.out.println("Getting the data in Education Controller here!!!!!!");
+        System.out.println(educationDetails.getName() + "\n" + educationDetails.getSchool_name() + "\n" + educationDetails.getCollege_name());
+        return  mv;
+    }
 
 }
