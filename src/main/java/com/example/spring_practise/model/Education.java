@@ -1,4 +1,6 @@
 package com.example.spring_practise.model;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -6,9 +8,12 @@ import javax.persistence.Id;
 public class Education {
 
     @Id
-     private String name;
-     private String school_name;
-     private String college_name;
+    @Column(name = "Name")
+    private String name;
+    @Column(name = "School")
+    private String school_name;
+    @Column(name = "College")
+    private String college_name;
 
 
     public Education() {

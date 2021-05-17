@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 
 @Controller
 @Component
@@ -29,11 +28,11 @@ public class SkillController {
 
     Skills gettingRequiredSkills;
 
-    @RequestMapping("getSkills")
+    @RequestMapping("get/skills")
     public ModelAndView getSkill(@RequestParam("name") String name) {
         ModelAndView mv = new ModelAndView();
         gettingRequiredSkills = skillsRepo.findByName(name);
-        mv.addObject("skills" , gettingRequiredSkills);
+        mv.addObject("skills", gettingRequiredSkills);
         mv.setViewName("skill_details");
         return mv;
     }
